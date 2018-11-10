@@ -8,16 +8,7 @@ use App\User;
 class UserController extends Controller
 {
     public function index(){
-        $users=[
-            '0'=>[
-                'firstName'=>'waqas',
-                'lastName'=>'khan'
-            ],
-            '1'=>[
-                'firstName'=>'aloo',
-                'lastName'=>'khan'
-            ]
-        ];
+        $users= User::paginate(10);
         return view('admin.users.index',compact('users'));
     }
     public function create(){

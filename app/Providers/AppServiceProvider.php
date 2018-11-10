@@ -3,6 +3,8 @@
 namespace App\Providers;
 use View;
 use Illuminate\Support\ServiceProvider;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Blade;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +15,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::share('myname','Waqas');
+
+        Blade::directive('age', function ($exp){
+            $data=json_decode($exp);
+            $year=$data[0];
+            $month=$data[1];
+            $date=$data[2];
+            $age=Carbon::createFromDate($year,$month,$date)->age;
+           return "<?php echo $age; ?>" ;
+        });
     }
 
     /**
@@ -23,6 +33,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        View::share('myname','Waqas');
     }
 }

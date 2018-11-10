@@ -1,4 +1,14 @@
 
     @foreach ($users as $user)
-       <li>{!! $user['firstName'] !!} {!! $user['lastName'] !!}</li>
+        <div>
+             <span>
+            {!! $user->name !!}
+        </span>
+            |
+            <span class="col-sm-4">
+            {!! $user->created_at->diffForHumans() !!}
+        </span>
+        </div><br>
+
     @endforeach
+    {{ $users->links() }}

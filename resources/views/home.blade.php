@@ -14,7 +14,8 @@
                         </div>
                     @endif
 
-                    You are logged in! {{ $myname }}
+                    Welcome! {{ $myname }}
+                      <p>age @age([1992,4,4])</p>
                 </div>
             </div>
         </div>

@@ -12,4 +12,10 @@ class PagesController extends Controller
     public function profile(){
         return view('pages.profile');
     }
+    public function blade(){
+        return view('blade.blade');
+    }
+    public function portfolio(){
+        return view('blade.portfolio');
+    }
 }
